@@ -9,7 +9,7 @@ let digits =
       Printf.sprintf "%c%c" c v
   )
 
-let digit1 = 
+let digit1 =
   let tbl = Hashtbl.create 64 in
   for i = 0 to String.length consonants - 1 do
     Hashtbl.add tbl consonants.[i] (6 * i);
@@ -17,7 +17,7 @@ let digit1 =
   done;
   tbl
 
-let digit2 = 
+let digit2 =
   let tbl = Hashtbl.create 64 in
   for i = 0 to String.length vowels - 1 do
     Hashtbl.add tbl vowels.[i] i;
@@ -53,7 +53,7 @@ let of_string s =
     else
       let k = decode s.[pos] s.[pos+1] in
       loop s (pos + 2) (len - 2) (120 * n + k)
-  in  
+  in
   let len = String.length s in
   if len < 2 then
     invalid_arg "Base120.of_string";
